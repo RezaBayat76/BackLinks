@@ -44,12 +44,12 @@ public class BackLinks {
 //        path = BackLinks.class.getClassLoader().getResource("hbase-site.xml").getPath();
 //        configuration.addResource(new Path(path));
 
-        hBaseInputTableName = "backLinks";
-        hBaseInputColumnFamily = "links";
+        hBaseInputTableName = "backLinksT";
+        hBaseInputColumnFamily = "linksT";
 
-        hBaseOutputTableName = "linkRefs";
-        hBaseOutputColumnFamily = "refCount";
-        hBaseOutputQuantifier = "count";
+        hBaseOutputTableName = "linkRefsT";
+        hBaseOutputColumnFamily = "refCountT";
+        hBaseOutputQuantifier = "countT";
 
         configuration.set(TableInputFormat.INPUT_TABLE, hBaseInputTableName);
         configuration.set(TableInputFormat.SCAN_COLUMN_FAMILY, hBaseInputColumnFamily);
