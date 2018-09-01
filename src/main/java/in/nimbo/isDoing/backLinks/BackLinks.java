@@ -39,7 +39,6 @@ public class BackLinks {
         SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName());
         javaSparkContext = new JavaSparkContext(sparkConf);
 
-
         configuration = HBaseConfiguration.create();
         configuration.set("hbase.zookeeper.property.clientPort", "2181");
 //        path = BackLinks.class.getClassLoader().getResource("hbase-site.xml").getPath();
