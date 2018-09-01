@@ -34,9 +34,9 @@ public class BackLinks {
     private static final String hBaseOutputQuantifier;
 
     static {
-//        String master = "local[1]";
-//        SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName()).setMaster(master);
-        SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName());
+        String master = "spark://srv1:7077";
+        SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName()).setMaster(master);
+//        SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName());
         javaSparkContext = new JavaSparkContext(sparkConf);
 
         configuration = HBaseConfiguration.create();
