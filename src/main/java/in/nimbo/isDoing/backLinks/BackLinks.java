@@ -40,10 +40,10 @@ public class BackLinks {
 
         configuration = HBaseConfiguration.create();
         configuration.set("hbase.zookeeper.property.clientPort", "2181");
-//        configuration.set("hbase.rootdir", "hdfs://srv1:9000/hbase");
-//        configuration.set("hbase.cluster.distributed", "true");
-//        configuration.set("hbase.zookeeper.quorum", "srv1,srv2,srv3");
-//        configuration.set("fs.defaultFS", "hdfs://srv1:9000");
+        configuration.set("hbase.rootdir", "hdfs://srv1:9000/hbase");
+        configuration.set("hbase.cluster.distributed", "true");
+        configuration.set("hbase.zookeeper.quorum", "srv1,srv2,srv3");
+        configuration.set("fs.defaultFS", "hdfs://srv1:9000");
 
 //        path = BackLinks.class.getClassLoader().getResource("hbase-site.xml").getPath();
 //        configuration.addResource(new Path(path));
