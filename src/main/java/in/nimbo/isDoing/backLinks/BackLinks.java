@@ -24,7 +24,7 @@ public class BackLinks {
 
     private static final JavaSparkContext javaSparkContext;
     private static final Configuration configuration;
-    private static final String path;
+//    private static final String path;
 
     private static final String hBaseInputTableName;
     private static final String hBaseInputColumnFamily;
@@ -34,15 +34,16 @@ public class BackLinks {
     private static final String hBaseOutputQuantifier;
 
     static {
-//        String master = "spark://localhost:7077";
+//        String master = "local[1]";
 //        SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName()).setMaster(master);
         SparkConf sparkConf = new SparkConf().setAppName(BackLinks.class.getSimpleName());
         javaSparkContext = new JavaSparkContext(sparkConf);
 
 
         configuration = HBaseConfiguration.create();
-        path = BackLinks.class.getClassLoader().getResource("hbase-site.xml").getPath();
-        configuration.addResource(new Path(path));
+        configuration.set("hbase.zookeeper.property.clientPort", "2181");
+//        path = BackLinks.class.getClassLoader().getResource("hbase-site.xml").getPath();
+//        configuration.addResource(new Path(path));
 
         hBaseInputTableName = "backLinks";
         hBaseInputColumnFamily = "links";
