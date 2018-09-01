@@ -63,7 +63,7 @@ public class BackLinks {
         JavaPairRDD<String, String> pairRDD = hBaseData.flatMapToPair(record -> {
             String key = Bytes.toString(record._1.get());
             List<Cell> linkCells = record._2.listCells();
-            return linkCells.stream().map(cell -> new Tuple2<>(Bytes.toString(CellUtil.cloneValue(cell)), key)).iterator();
+            return linkCells.stream().map(cell -> new Tuple2<>(Bytes.toString(CellUtil.cloneQualifier(cell)), key)).iterator();
         });
 
         JavaPairRDD<String, Integer> mapToOne = pairRDD.mapToPair(r -> new Tuple2<>(r._1, 1));
